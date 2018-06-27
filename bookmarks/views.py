@@ -9,7 +9,7 @@ def index(request):
   context['bookmarks'] = Bookmark.objects.filter(id_in=pbid)
   if request.user.is_anonymous:
     context['personal_bookmarks'] = PersonalBookmark.objects.none()
-    else:
-      context['personal_bookmarks'] = PersonalBookmark.objects.filter(user=request.user)
+  else:
+    context['personal_bookmarks'] = PersonalBookmark.objects.filter(user=request.user)
 
   return render(request, 'bookmarks/index.html', context)
