@@ -4,7 +4,7 @@ from .models import Note, PersonalNote
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = Note
-    fields = {'title', 'content'}
+    fields = ('title', 'content')
 
 class NoteViewset(viewsets.ModelViewSet):
   serializer_class = NoteSerializer
@@ -13,7 +13,7 @@ class NoteViewset(viewsets.ModelViewSet):
 class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = PersonalNote
-    fields = {'title', 'content'}
+    fields = ('title', 'content')
 
   def create(self, validated_data):
     user = self.context['request'].user

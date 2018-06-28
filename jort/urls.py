@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from notes.api import NoteViewset
+from bookmarks.api import BookmarkViewset
+
+router = routers.DefaultRouter()
+router.register(r'notes', NoteViewset)
+router.register(r'bookmarks', BookmarkViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookmarks/', include('bookmarks.urls')),
-    path('api/', include(routers.url)),
+    path(r'api/', include(router.urls)),
 ]
-
-router = routers.DefaultRouter()
-router.register(r'notes', NoteViewset)
