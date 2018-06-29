@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bookmarks',
     'rest_framework',
     'rest_framework.authtoken',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -126,9 +127,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication, TokenAuthentication
 
